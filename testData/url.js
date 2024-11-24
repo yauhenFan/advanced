@@ -1,4 +1,4 @@
-const BASE_URL = 'https://rp.epam.com';
+const BASE_URL = 'http://localhost:8080/ui/#login';
 
 
 module.exports = {BASE_URL}

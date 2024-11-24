@@ -6,6 +6,7 @@ class Base {
     async maximize() {
         await browser.maximizeWindow();
     }
+
 }
 
 module.exports = Base;

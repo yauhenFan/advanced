@@ -1,12 +1,29 @@
-export const config: WebdriverIO.Config = {
+const { Reporter } = require('@reportportal/agent-js-webdriverio');
+
+const rpConfig = {
+  apiKey: 'apiKey_ldmX-m42T96tKDYg7CjDcUH2QT0rlXFu5vEJKuFFVaqjmDqQ5g__8dzkuRQlbeYk',
+  endpoint: 'https://your.reportportal.server/api/v1',
+  project: 'Your reportportal project nameal',
+  launch: 'Your launch name',
+  mode: 'DEFAULT',
+  debug: false,
+  description: 'Static launch description',
+  attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
+  attachPicturesToLogs: true,
+  reportSeleniumCommands: true,
+  seleniumCommandsLogLevel: 'debug',
+  cucumberNestedSteps: false,
+};
+
+exports.config = {
     //
     // ====================
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-    tsConfigPath: './tsconfig.json',
-    
+    //tsConfigPath: './tsconfig.json',
+    path: '/',
     //
     // ==================
     // Specify Test Files
@@ -96,7 +113,7 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    // baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -135,7 +152,7 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {outputDir: 'allure-results'}]],
+    reporters: [[Reporter, rpConfig]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -238,11 +255,11 @@ export const config: WebdriverIO.Config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-        if (!passed) {
-            await browser.takeScreenshot();
-        }
-    },
+    // afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+    //     if (!passed) {
+    //         await browser.takeScreenshot();
+    //     }
+    // },
 
 
     /**
