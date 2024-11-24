@@ -1,6 +1,10 @@
 const mainPage = require('../pageobjects/mainPage');
 const url = require('../testData/url');
 const credetials = require('../testData/credentials')
+require('dotenv').config();
+
+const login = process.env.loginD;
+const pswd = process.env.pswdD;
 
 describe('Open ReportPortal', () => {
     it('Launch ReportPortal via dorect URL', async() => {
@@ -9,8 +13,8 @@ describe('Open ReportPortal', () => {
     });
 
     it('I login with Default user credentials', async() => {
-        await mainPage.enterValue(mainPage.loginInput, credetials.Default_C.login);
-        await mainPage.enterValue(mainPage.pswdInput, credetials.Default_C.pswd);
+        await mainPage.enterValue(mainPage.loginInput, login);
+        await mainPage.enterValue(mainPage.pswdInput, pswd);
         await mainPage.clickElement(mainPage.submitBtn);
         await browser.pause(5000);
     })
