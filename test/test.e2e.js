@@ -1,6 +1,5 @@
 const mainPage = require('../pageobjects/mainPage');
 const url = require('../testData/url');
-const credetials = require('../testData/credentials')
 require('dotenv').config();
 
 const login = process.env.loginD;
