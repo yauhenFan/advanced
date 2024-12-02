@@ -1,6 +1,6 @@
 node_modules
+.tmp
+__snapshots__
 allure-results
-.env
 allure-report
-combined.log
-combined
+docker-compose
