@@ -72,8 +72,10 @@ exports.config = {
         browserName: 'chrome',
         'goog:chromeOptions': {
             args: [
+                '--disable-gpu',
                 '--no-sandbox',
-                'enable-automation'
+                'enable-automation',
+                'disable-notifications'
             ]
         }
     }],
@@ -102,7 +104,7 @@ exports.config = {
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     // logLevels: {
     //     webdriver: 'info',
-    //     '@wdio/appium-service': 'info'
+    //     '@wdio/logger': 'info'
     // },
     //
     // If you only want to run your tests until a specific amount of tests have failed use
@@ -129,7 +131,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
+    services: ['visual'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -152,7 +154,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [[Reporter, rpConfig]],
+    reporters: ['spec', [Reporter, rpConfig], ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
