@@ -33,9 +33,8 @@ x-analyzer-environment: &common-analyzer-environment
   AMQP_EXCHANGE_NAME: analyzer-default
   AMQP_VIRTUAL_HOST: analyzer
   AMQP_URL: amqp://rabbitmq:rabbitmq@rabbitmq:5672
-  ES_HOSTS: http://opensearch:9200 
+  ES_HOSTS: http://opensearch:9200
   ANALYZER_BINARYSTORE_TYPE: filesystem
-
 
 services:
   ##
@@ -49,10 +48,10 @@ services:
     logging:
       <<: *logging
     ports:
-      ## ReportPortal UI 
-      - "8080:8080" 
+      ## ReportPortal UI
+      - "8080:8080"
       ## Uncomment to expose Traefik dashboard
-      # - "8081:8081" 
+      # - "8081:8081"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command:
@@ -89,7 +88,7 @@ services:
     volumes:
       - opensearch:/usr/share/opensearch/data
     healthcheck:
-      test: ["CMD", "curl","-s" ,"-f", "http://0.0.0.0:9200/_cat/health"]
+      test: ["CMD", "curl", "-s", "-f", "http://0.0.0.0:9200/_cat/health"]
     networks:
       - reportportal
     restart: always
@@ -100,7 +99,7 @@ services:
     container_name: *db_host
     logging:
       <<: *logging
-    shm_size: '512m'
+    shm_size: "512m"
     environment:
       POSTGRES_USER: *db_user
       POSTGRES_PASSWORD: *db_password
@@ -159,7 +158,7 @@ services:
   ##
   ## ReportPortal Core services
   ##
-  
+
   index:
     image: reportportal/service-index:5.12.0
     logging:
@@ -169,7 +168,7 @@ services:
         condition: service_started
     environment:
       LB_URL: http://gateway:8081
-      TRAEFIK_V2_MODE: 'true'
+      TRAEFIK_V2_MODE: "true"
     healthcheck:
       test: wget -q --spider http://0.0.0.0:8080/health
       interval: 30s
@@ -321,9 +320,9 @@ services:
       RP_ENVIRONMENT_VARIABLE_CLEAN_LAUNCH_CRON: 0 0 */24 * * *
       RP_ENVIRONMENT_VARIABLE_CLEAN_STORAGE_CRON: 0 0 */24 * * *
       RP_ENVIRONMENT_VARIABLE_STORAGE_PROJECT_CRON: 0 */5 * * * *
-      RP_ENVIRONMENT_VARIABLE_CLEAN_EXPIREDUSER_CRON:  0 0 */24 * * *
+      RP_ENVIRONMENT_VARIABLE_CLEAN_EXPIREDUSER_CRON: 0 0 */24 * * *
       RP_ENVIRONMENT_VARIABLE_CLEAN_EXPIREDUSER_RETENTIONPERIOD: 365
-      RP_ENVIRONMENT_VARIABLE_NOTIFICATION_EXPIREDUSER_CRON: 0 0 */24 * * * 
+      RP_ENVIRONMENT_VARIABLE_NOTIFICATION_EXPIREDUSER_CRON: 0 0 */24 * * *
       RP_ENVIRONMENT_VARIABLE_CLEAN_EVENTS_RETENTIONPERIOD: 365
       RP_ENVIRONMENT_VARIABLE_CLEAN_EVENTS_CRON: 0 30 05 * * *
       RP_ENVIRONMENT_VARIABLE_CLEAN_STORAGE_CHUNKSIZE: 20000
@@ -431,8 +430,8 @@ services:
       OS_PORT: 9200
       OS_PROTOCOL: http
       ## Uncomment and set the following if OpenSearch requires authentication
-      # OS_USER: 
-      # OS_PASSWORD: 
+      # OS_USER:
+      # OS_PASSWORD:
     networks:
       - reportportal
     restart: on-failure
