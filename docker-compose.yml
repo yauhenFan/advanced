@@ -1,9 +1,9 @@
 ## Common configuration used across various services and environments
 x-logging: &logging
-  driver: "json-file"
+  driver: 'json-file'
   options:
     max-size: 100m
-    max-file: "5"
+    max-file: '5'
 
 x-hosts:
   OS_HOST: &opensearch_host opensearch
@@ -49,7 +49,7 @@ services:
       <<: *logging
     ports:
       ## ReportPortal UI
-      - "8080:8080"
+      - '8080:8080'
       ## Uncomment to expose Traefik dashboard
       # - "8081:8081"
     volumes:
@@ -73,10 +73,10 @@ services:
       <<: *logging
     environment:
       discovery.type: single-node
-      plugins.security.disabled: "true"
-      bootstrap.memory_lock: "true"
+      plugins.security.disabled: 'true'
+      bootstrap.memory_lock: 'true'
       OPENSEARCH_JAVA_OPTS: -Xms512m -Xmx512m
-      DISABLE_INSTALL_DEMO_CONFIG: "true"
+      DISABLE_INSTALL_DEMO_CONFIG: 'true'
     ulimits:
       memlock:
         soft: -1
@@ -88,7 +88,7 @@ services:
     volumes:
       - opensearch:/usr/share/opensearch/data
     healthcheck:
-      test: ["CMD", "curl", "-s", "-f", "http://0.0.0.0:9200/_cat/health"]
+      test: ['CMD', 'curl', '-s', '-f', 'http://0.0.0.0:9200/_cat/health']
     networks:
       - reportportal
     restart: always
@@ -99,7 +99,7 @@ services:
     container_name: *db_host
     logging:
       <<: *logging
-    shm_size: "512m"
+    shm_size: '512m'
     environment:
       POSTGRES_USER: *db_user
       POSTGRES_PASSWORD: *db_password
@@ -117,7 +117,7 @@ services:
     # ports:
     #   - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"]
+      test: ['CMD-SHELL', 'pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER']
       interval: 10s
       timeout: 120s
       retries: 10
@@ -138,7 +138,7 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: *rabbitmq_user
       RABBITMQ_DEFAULT_PASS: *rabbitmq_password
-      RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS: "true"
+      RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS: 'true'
       RABBITMQ_DISK_FREE_ABSOLUTE_LIMIT: 50MB
       RABBITMQ_PLUGINS: >
         rabbitmq_consistent_hash_exchange
@@ -147,7 +147,7 @@ services:
         rabbitmq_shovel
         rabbitmq_shovel_management
     healthcheck:
-      test: ["CMD", "rabbitmqctl", "status"]
+      test: ['CMD', 'rabbitmqctl', 'status']
       interval: 30s
       timeout: 30s
       retries: 5
@@ -168,7 +168,7 @@ services:
         condition: service_started
     environment:
       LB_URL: http://gateway:8081
-      TRAEFIK_V2_MODE: "true"
+      TRAEFIK_V2_MODE: 'true'
     healthcheck:
       test: wget -q --spider http://0.0.0.0:8080/health
       interval: 30s
@@ -176,11 +176,11 @@ services:
       retries: 10
       start_period: 10s
     labels:
-      - "traefik.http.routers.index.rule=PathPrefix(`/`)"
-      - "traefik.http.routers.index.service=index"
-      - "traefik.http.services.index.loadbalancer.server.port=8080"
-      - "traefik.http.services.index.loadbalancer.server.scheme=http"
-      - "traefik.expose=true"
+      - 'traefik.http.routers.index.rule=PathPrefix(`/`)'
+      - 'traefik.http.routers.index.service=index'
+      - 'traefik.http.services.index.loadbalancer.server.port=8080'
+      - 'traefik.http.services.index.loadbalancer.server.scheme=http'
+      - 'traefik.expose=true'
     networks:
       - reportportal
     restart: always
@@ -188,7 +188,7 @@ services:
   ui:
     image: reportportal/service-ui:5.12.0
     environment:
-      RP_SERVER_PORT: "8080"
+      RP_SERVER_PORT: '8080'
     healthcheck:
       test: wget -q --spider http://0.0.0.0:8080/health
       interval: 30s
@@ -196,13 +196,13 @@ services:
       retries: 10
       start_period: 10s
     labels:
-      - "traefik.http.middlewares.ui-strip-prefix.stripprefix.prefixes=/ui"
-      - "traefik.http.routers.ui.middlewares=ui-strip-prefix@docker"
-      - "traefik.http.routers.ui.rule=PathPrefix(`/ui`)"
-      - "traefik.http.routers.ui.service=ui"
-      - "traefik.http.services.ui.loadbalancer.server.port=8080"
-      - "traefik.http.services.ui.loadbalancer.server.scheme=http"
-      - "traefik.expose=true"
+      - 'traefik.http.middlewares.ui-strip-prefix.stripprefix.prefixes=/ui'
+      - 'traefik.http.routers.ui.middlewares=ui-strip-prefix@docker'
+      - 'traefik.http.routers.ui.rule=PathPrefix(`/ui`)'
+      - 'traefik.http.routers.ui.service=ui'
+      - 'traefik.http.services.ui.loadbalancer.server.port=8080'
+      - 'traefik.http.services.ui.loadbalancer.server.scheme=http'
+      - 'traefik.expose=true'
     networks:
       - reportportal
     restart: always
@@ -221,10 +221,10 @@ services:
     environment:
       <<: *common-environment
       LOGGING_LEVEL_ORG_HIBERNATE_SQL: info
-      RP_REQUESTLOGGING: "false"
-      AUDIT_LOGGER: "OFF"
-      MANAGEMENT_HEALTH_ELASTICSEARCH_ENABLED: "false"
-      RP_ENVIRONMENT_VARIABLE_ALLOW_DELETE_ACCOUNT: "false"
+      RP_REQUESTLOGGING: 'false'
+      AUDIT_LOGGER: 'OFF'
+      MANAGEMENT_HEALTH_ELASTICSEARCH_ENABLED: 'false'
+      RP_ENVIRONMENT_VARIABLE_ALLOW_DELETE_ACCOUNT: 'false'
       JAVA_OPTS: >
         -Xmx1g 
         -XX:+HeapDumpOnOutOfMemoryError 
@@ -255,13 +255,13 @@ services:
       retries: 10
       start_period: 60s
     labels:
-      - "traefik.http.middlewares.api-strip-prefix.stripprefix.prefixes=/api"
-      - "traefik.http.routers.api.middlewares=api-strip-prefix@docker"
-      - "traefik.http.routers.api.rule=PathPrefix(`/api`)"
-      - "traefik.http.routers.api.service=api"
-      - "traefik.http.services.api.loadbalancer.server.port=8585"
-      - "traefik.http.services.api.loadbalancer.server.scheme=http"
-      - "traefik.expose=true"
+      - 'traefik.http.middlewares.api-strip-prefix.stripprefix.prefixes=/api'
+      - 'traefik.http.routers.api.middlewares=api-strip-prefix@docker'
+      - 'traefik.http.routers.api.rule=PathPrefix(`/api`)'
+      - 'traefik.http.routers.api.service=api'
+      - 'traefik.http.services.api.loadbalancer.server.port=8585'
+      - 'traefik.http.services.api.loadbalancer.server.scheme=http'
+      - 'traefik.expose=true'
     networks:
       - reportportal
     restart: always
@@ -277,7 +277,7 @@ services:
       ## Session lifetime in seconds for SAML sessions
       RP_SAML_SESSION-LIVE: 4320
       ## Initial password for the superadmin user on the first launch. This value won't change the password on redeployments.
-      RP_INITIAL_ADMIN_PASSWORD: "changed"
+      RP_INITIAL_ADMIN_PASSWORD: 'changed'
       JAVA_OPTS: -Djava.security.egd=file:/dev/./urandom -XX:MinRAMPercentage=60.0 -XX:MaxRAMPercentage=90.0 --add-opens=java.base/java.lang=ALL-UNNAMED
     volumes:
       - storage:/data/storage
@@ -288,13 +288,13 @@ services:
       retries: 10
       start_period: 60s
     labels:
-      - "traefik.http.middlewares.uat-strip-prefix.stripprefix.prefixes=/uat"
-      - "traefik.http.routers.uat.middlewares=uat-strip-prefix@docker"
-      - "traefik.http.routers.uat.rule=PathPrefix(`/uat`)"
-      - "traefik.http.routers.uat.service=uat"
-      - "traefik.http.services.uat.loadbalancer.server.port=9999"
-      - "traefik.http.services.uat.loadbalancer.server.scheme=http"
-      - "traefik.expose=true"
+      - 'traefik.http.middlewares.uat-strip-prefix.stripprefix.prefixes=/uat'
+      - 'traefik.http.routers.uat.middlewares=uat-strip-prefix@docker'
+      - 'traefik.http.routers.uat.rule=PathPrefix(`/uat`)'
+      - 'traefik.http.routers.uat.service=uat'
+      - 'traefik.http.services.uat.loadbalancer.server.port=9999'
+      - 'traefik.http.services.uat.loadbalancer.server.scheme=http'
+      - 'traefik.expose=true'
     depends_on:
       postgres:
         condition: service_healthy
@@ -404,8 +404,8 @@ services:
       POSTGRES_DB: *db_name
       POSTGRES_HOST: *db_host
       POSTGRES_PORT: *db_port
-      ALLOWED_START_TIME: "22:00"
-      ALLOWED_END_TIME: "08:00"
+      ALLOWED_START_TIME: '22:00'
+      ALLOWED_END_TIME: '08:00'
     depends_on:
       opensearch:
         condition: service_started

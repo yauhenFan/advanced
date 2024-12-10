@@ -1,7 +1,19 @@
-import globals from "globals";
-
+import globals from 'globals';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {languageOptions: { globals: globals.browser }},
+	{
+		files: ['src/**/e2e.js'],
+		ignores: [
+			'**/*.config.js',
+			'!**/eslint.config.js',
+			'node_modules/',
+			'allure-results/',
+			'allure-report',
+			'combined.log',
+		],
+		rules: {
+			semi: 'error',
+		},
+	},
 ];

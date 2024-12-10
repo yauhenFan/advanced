@@ -1,12 +1,12 @@
 {
-    "version": "0.1",
-    "language": "en",
-    "ignorePaths": [
-      "node_modules/**",
-      "dist/**",
-      "allure-report/**",
-      "allure-resuls/**"
-    ],
-    "dictionaries": ["typescript", "javascript", "html", "css"],
-    "words": ["autoamtion", "framewotrk"]
-  }
+	"version": "0.1",
+	"language": "en",
+	"ignorePaths": [
+		"node_modules/**",
+		"dist/**",
+		"allure-report/**",
+		"allure-resuls/**"
+	],
+	"dictionaries": ["typescript", "javascript", "html", "css"],
+	"words": ["autoamtion", "framewotrk"]
+}
