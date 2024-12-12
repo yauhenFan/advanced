@@ -8,17 +8,17 @@ import {
 	Invited_User,
 	Invited_Pswd,
 } from '../utils/credentials';
+import { LoginHelper } from '../utils/helpers/loginHelper';
 
 const mainPage = new MainPage();
 const dashboardPage = new DashboardPage();
+const loginHelper = new LoginHelper();
 
 describe('Add and delete new dashboard', async () => {
 	before(async () => {
 		await mainPage.open(BASE_URL);
 		await mainPage.maximize();
-		await mainPage.enterValue(mainPage.loginInput, Default_User);
-		await mainPage.enterValue(mainPage.pswdInput, Default_Pswd);
-		await mainPage.clickElement(mainPage.submitBtn);
+		await loginHelper.login(Default_User, Default_Pswd);
 	});
 
 	it('Click on Add New Dashboard button and verify popup appears', async () => {
