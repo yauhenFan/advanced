@@ -10,10 +10,8 @@
 		"allure-generate": "npx allure generate",
 		"allure-open": "npx allure open",
 		"clean-folders": "rimraf \"allure-report\" \"allure-resuls\"",
-		"lint": "eslint . --fix",
-		"prettier": "prettier --write .",
-		"prepare": "husky install",
-		"spellcheck": "cspell src/**/*.js"
+		"spellcheck": "cspell src/**/*.js",
+		"prepare": "husky install"
 	},
 	"author": "Yauhen Habinet",
 	"license": "ISC",
@@ -27,19 +25,12 @@
 		"@wdio/visual-service": "^6.2.0",
 		"chai": "^5.1.2",
 		"cspell": "^8.16.1",
-		"eslint": "^9.16.0",
-		"eslint-config-prettier": "^9.1.0",
-		"globals": "^15.13.0",
-		"prettier": "^3.4.2"
+		"husky": "^9.1.7"
 	},
 	"dependencies": {
 		"allure-commandline": "^2.30.0",
 		"dotenv": "^16.4.5",
 		"rimraf": "^6.0.1",
 		"winston": "^3.17.0"
-	},
-	"lint-staged": {
-		"*.js": "eslint --cache --fix",
-		"*.{js,css,md}": "prettier --write"
 	}
 }
