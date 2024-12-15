@@ -13,6 +13,12 @@ export class MainPage extends Base {
 		return $('input[name="password"]');
 	}
 
+	get dashboardIcon() {
+		return $(
+			'//a[@class  = "sidebarButton__nav-link--gZnHQ sidebarButton__active--GG93E"]'
+		);
+	}
+
 	async enterValue(elem, value) {
 		await elem.isDisplayed();
 		await elem.setValue(value);
