@@ -1,29 +1,32 @@
+/* eslint-disable quote-props */
 import globals from 'globals';
+import pluginJs from '@eslint/js';
+
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	{
-		files: ['src/**/e2e.js'],
-		ignores: [
-			'**/*.config.js',
-			'!**/eslint.config.js',
-			'node_modules/',
-			'allure-results/',
-			'allure-report',
-			'combined.log',
-		],
-		rules: {
-			semi: 'error',
+  {languageOptions: { globals: globals.browser }},
+  pluginJs.configs.recommended,
+  {ignores: [
+    '**/node_modules/**',
+    'allure-results',
+    'allure-report',
+    '**/**/credentials.js',
+    '**/wdio.test.js'
+  ]
+  },
+  {rules: {
+    semi: 'error',
 			'max-len': ['error', { code: 180 }],
 			curly: ['error', 'multi-line'],
 			indent: 'off',
 			yoda: 'error',
 			'default-case': 'error',
-			camelcase: ['warn', { ignoreDestructuring: true, properties: 'never' }],
-			'no-trailing-spaces': 'off',
+			camelcase: ['warn', { ignoreDestructuring: true, properties: 'never' }],    
+      'no-trailing-spaces': 'off',
 			'no-console': 'off',
-			'no-undef': 'on',
-			'no-sync': 'error',
+			'no-undef': 1,
+      'no-sync': 'error',
 			'no-var': 'warn',
 			'no-shadow': 'error',
 			'no-nested-ternary': 'error',
@@ -41,20 +44,19 @@ export default [
 			'no-unused-vars': 'off',
 			'no-implicit-coercion': ['error', { allow: ['!!'] }],
 			'for-direction': 'error',
-			quotes: ['warn', 'single', { allowTemplateLiterals: true }],
+			 quotes: ['warn', 'single', { allowTemplateLiterals: true }],
 			'guard-for-in': 'error',
 			'quote-props': ['warn', 'consistent'],
 			'arrow-parens': ['warn', 'as-needed'],
 			'dot-notation': 'warn',
 			'class-methods-use-this': ['warn'],
-			'import/no-extraneous-dependencies': ['error'],
-			'import/no-import-module-exports': ['error'],
-			'no-only-tests/no-only-tests': 'error',
-			'no-restricted-syntax': [
+      'no-restricted-syntax': [
 				'error',
 				{
 					selector: 'ForInStatement',
 					message:
+					
+						// eslint-disable-next-line max-len
 						'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
 				},
 				{
@@ -68,6 +70,6 @@ export default [
 						'with is disallowed in strict mode because it makes code impossible to predict and optimize.',
 				},
 			],
-		},
-	},
-];
+    }},
+      
+    ];

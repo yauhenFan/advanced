@@ -3,12 +3,7 @@ import { BASE_URL, WEB_URL } from '../data/url';
 import { DashboardPage } from '../pages/dashboardPage';
 import { expect } from 'chai';
 
-import {
-	Default_User,
-	Default_Pswd,
-	Invited_User,
-	Invited_Pswd,
-} from '../utils/credentials';
+import { Default_User, Default_Pswd } from '../utils/credentials';
 import { LoginHelper } from '../utils/helpers/loginHelper';
 
 const mainPage = new MainPage();

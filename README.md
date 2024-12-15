@@ -12,5 +12,6 @@ To install Project Title, follow these steps:
 
 1. Clone the repository: **`git clone https://github.com/yauhenFan/advanced.git`**
 2. Navigate to the project directory: **`cd project-title`**
-3. Install dependencies: **`npm install`**
-4. Start the project: **`npm run test`**
+3. Install Husky **`npx mrm@2 lint-staged`**
+4. Install dependencies: **`npm install`**
+5. Start the project: **`npm run test`**
