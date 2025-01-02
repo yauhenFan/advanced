@@ -17,8 +17,6 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: 20.16.0
-            - name: Folder
-              run: cd ./advanced
             - name: Husky install
               working-directory: ./advanced
               run: npx mrm@2 lint-staged
