@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { MainPage } from '../pages/mainPage';
 import { BASE_URL, WEB_URL } from '../data/url.mjs';
 import { DashboardPage } from '../pages/dashboardPage';
