@@ -7,3 +7,4 @@ combined
 .husky
 test-results
 playwright-report
+.eslintcache

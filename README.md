@@ -16,4 +16,4 @@ To install Project Title, follow these steps:
 4. Install dependencies: **`npm install`**
 5. Start the project: **`npm run test`**
 6. API tests for Fetch API client are stored in './test' folder, use script: **`npm run api`**
-7. API tests for Playwright API client are stored in './test' folder, use script: **`npm run playwrightapi`**
+7. API tests for Playwright API client are stored in './tests' folder, use script: **`npm run playwrightapi`**
