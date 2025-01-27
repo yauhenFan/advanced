@@ -41,8 +41,8 @@ describe('Add and delete new dashboard', async () => {
 	});
 
 	it('Delete newly created dashboard and verify it is not displayed', async () => {
-		await dashboardPage.deleteDashboardBtn.isDisplayed();
-		await dashboardPage.deleteDashboardBtn.click();
+		await (await dashboardPage.deleteExactDashboardBtn(2)).isDisplayed();
+		await (await dashboardPage.deleteExactDashboardBtn(2)).click();
 		await dashboardPage.confirmDeleteBtn.isDisplayed();
 		await dashboardPage.confirmDeleteBtn.click();
 		await mainPage.dashboardIcon.isDisplayed();
