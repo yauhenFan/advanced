@@ -20,8 +20,7 @@ jobs:
             - name: Husky install
               run: npx mrm@2 lint-staged
             - name: Dependencies
-              working-directory: ./advanced
               run: npm i
             - name: Run Tests
-              working-directory: ./advanced
+              working-directory: ./
               run: npm run test
