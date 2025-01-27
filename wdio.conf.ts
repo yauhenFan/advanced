@@ -3,7 +3,7 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 const rpConfig = {
 	apiKey:
 		'apiKey_ldmX-m42T96tKDYg7CjDcUH2QT0rlXFu5vEJKuFFVaqjmDqQ5g__8dzkuRQlbeYk',
-	endpoint: 'https://your.reportportal.server/api/v1',
+	endpoint: 'http://localhost:8080/ui/#login',
 	project: 'Your reportportal project nameal',
 	launch: 'Your launch name',
 	mode: 'DEFAULT',
