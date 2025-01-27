@@ -5,15 +5,15 @@ const rpConfig = {
 		'token_yLwYyc6sSOWh15H7Vkn6RXLujW6-bmTQe-Jwz_Fmc1iriM5Fhx9iQz4u4YS0OTE5',
 	endpoint: 'http://localhost:8080/api/v1',
 	project: 'default_personal',
-	launch: 'Launch name',
+	launch: 'Java launch',
 	mode: 'DEFAULT',
-	// debug: false,
-	// description: 'Static launch description',
-	// attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
-	// attachPicturesToLogs: true,
-	// reportSeleniumCommands: true,
-	// seleniumCommandsLogLevel: 'debug',
-	// cucumberNestedSteps: false,
+	debug: false,
+	description: 'Static launch description',
+	attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
+	attachPicturesToLogs: true,
+	reportSeleniumCommands: true,
+	seleniumCommandsLogLevel: 'debug',
+	cucumberNestedSteps: false,
 };
 
 // eslint-disable-next-line no-undef
@@ -157,18 +157,7 @@ exports.config = {
 	// Test reporter for stdout.
 	// The only one supported by default is 'dot'
 	// see also: https://webdriver.io/docs/dot-reporter
-	reporters: [
-		'spec',
-		[Reporter, rpConfig],
-		[
-			'allure',
-			{
-				outputDir: 'allure-results',
-				disableWebdriverStepsReporting: true,
-				disableWebdriverScreenshotsReporting: true,
-			},
-		],
-	],
+	reporters: [[Reporter, rpConfig]],
 
 	// Options to be passed to Mocha.
 	// See the full list at http://mochajs.org/
