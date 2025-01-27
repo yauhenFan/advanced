@@ -22,5 +22,5 @@ jobs:
             - name: Dependencies
               run: npm i
             - name: Run Tests
-              working-directory: ./advanced/wdio.conf.ts
               run: npm run test
+              working-directory: ./advanced
