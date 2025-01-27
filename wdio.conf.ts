@@ -159,6 +159,7 @@ exports.config = {
 	// see also: https://webdriver.io/docs/dot-reporter
 	reporters: [
 		'spec',
+		[Reporter, rpConfig],
 		[
 			'allure',
 			{

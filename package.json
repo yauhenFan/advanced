@@ -5,7 +5,7 @@
 	"sourceType": "module",
 	"main": "index.js",
 	"scripts": {
-		"test": "npm run wdio run ./wdio.conf.ts",
+		"test": "npm run wdio ./wdio.conf.ts",
 		"wdio": "npm run clean-folders && wdio run ./wdio.conf.ts && npm run allure-generate && npm run allure-open",
 		"allure-generate": "npx allure generate",
 		"allure-open": "npx allure open",
