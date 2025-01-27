@@ -16,6 +16,7 @@ const rpConfig = {
 	cucumberNestedSteps: false,
 };
 
+// eslint-disable-next-line no-undef
 exports.config = {
 	//
 	// ====================
