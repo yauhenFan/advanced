@@ -1,4 +1,4 @@
-name: CI
+run name: CI
 
 on:
   push:
@@ -22,4 +22,4 @@ jobs:
             - name: Dependencies
               run: npm i
             - name: Run Tests
-              run: npm wdio run D:\a\advanced\advanced\wdio.conf.js
+              run: npm run wdio D:\a\advanced\advanced\wdio.conf.js
