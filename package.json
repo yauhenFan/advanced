@@ -26,7 +26,6 @@
 		"@wdio/spec-reporter": "^9.2.14",
 		"@wdio/visual-service": "^6.2.0",
 		"chai": "^5.1.2",
-		"chromedriver": "^132.0.1",
 		"cspell": "^8.16.1",
 		"eslint": "^9.17.0",
 		"globals": "^15.13.0",
