@@ -22,4 +22,4 @@ jobs:
             - name: Dependencies
               run: npm i
             - name: Run Tests
-              run: npm run wdio D:\a\advanced\advanced\wdio.conf.js
+              run: npm run wdio
