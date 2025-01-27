@@ -5,3 +5,4 @@ allure-report
 combined.log
 combined
 .husky
+.eslintcache
