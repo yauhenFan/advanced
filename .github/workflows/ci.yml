@@ -22,5 +22,4 @@ jobs:
             - name: Dependencies
               run: npm i
             - name: Run Tests
-              working-directory: C:\Users\Yauhen_Habinet\Desktop\TAF\advanced
               run: npm run test
