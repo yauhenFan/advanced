@@ -2,7 +2,9 @@ import Base from './base';
 
 export class DashboardPage extends Base {
 	get demoDashBoardIcon() {
-		return $('//div[@data-id  = "15"]//a');
+		return $(
+			'//div[@class = "gridRow__grid-row--X9wIq"]//a[text() = "DEMO DASHBOARD"]'
+		);
 	}
 
 	get addNewDashboardBtn() {
@@ -42,6 +44,12 @@ export class DashboardPage extends Base {
 	async getDashboardTitle(title) {
 		return $(
 			`//div[@class = "gridRow__grid-row--X9wIq"]//a[text() = "${title}"]`
+		);
+	}
+
+	async deleteExactDashboardBtn(elnumber) {
+		return $(
+			`//div[@data-id != "15"][${elnumber}]//i[@class = "icon__icon--coE7b icon__icon-delete--lwBwP"]`
 		);
 	}
 }
