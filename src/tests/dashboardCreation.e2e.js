@@ -2,7 +2,12 @@ import { MainPage } from '../pages/mainPage';
 import { BASE_URL, WEB_URL } from '../data/url';
 import { DashboardPage } from '../pages/dashboardPage';
 import { expect } from 'chai';
-import { Default_User, Default_Pswd } from '../utils/credentials';
+import {
+	Default_User,
+	Default_Pswd,
+	Invited_User,
+	Invited_Pswd,
+} from '../utils/credentials';
 import { LoginHelper } from '../utils/helpers/loginHelper';
 
 const mainPage = new MainPage();
@@ -11,9 +16,9 @@ const loginHelper = new LoginHelper();
 
 describe('Add and delete new dashboard', async () => {
 	before(async () => {
-		await mainPage.open(BASE_URL);
+		await mainPage.open(WEB_URL);
 		await mainPage.maximize();
-		await loginHelper.login(Default_User, Default_Pswd);
+		await loginHelper.login(Invited_User, Invited_Pswd);
 	});
 
 	it('Click on Add New Dashboard button and verify popup appears', async () => {
