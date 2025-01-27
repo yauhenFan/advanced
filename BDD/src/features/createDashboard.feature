@@ -1,8 +1,10 @@
+@logout
+
 Feature: User creates several Dashboard and then delete
 
-Scenario: User logs in with default credentials
-Given I open web site 'http://localhost:8080/ui/#login'
-When I login with default User credentials 'default' and '1q2w3e'
+Background: User logs in with default credentials
+Given I open ReportPortal login page on localhost
+When I login with default User credentials
 
 Scenario Outline: User creates several dashboards
 When I click on Dashboard icon then Add New Dashboard button displays
@@ -15,17 +17,17 @@ Examples:
     | NewTwo            |
 
 Scenario Outline: I delete all newly created Dashboard
-Given I open web site 'http://localhost:8080/ui/#login'
+Given I open ReportPortal login page on localhost
 When I click on Dashboard icon then Add New Dashboard button displays
 Then I delete dashboard with number "<Number>"
 
 Examples:
     | Number    |
-    | 1         |
-    | 1         |
+    | 2         |
+    | 2         |
 
 Scenario Outline: I verify that custom dashboards deleted
-Given I open web site 'http://localhost:8080/ui/#login'
+Given I open ReportPortal login page on localhost
 When I click on Dashboard icon then Add New Dashboard button displays
 Then I do not see dashboard with name "<DashBoard_Name>"
 

@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"sourceType": "module",
 	"scripts": {
-		"test": "wdio run ./wdio.conf.js"
+		"bdd": "wdio run ./wdio.conf.js"
 	},
 	"keywords": [
 		"BDD"
@@ -20,6 +20,7 @@
 	},
 	"dependencies": {
 		"@wdio/cli": "^9.4.5",
-		"chai": "^5.1.2"
+		"chai": "^5.1.2",
+		"dotenv": "^16.4.7"
 	}
 }

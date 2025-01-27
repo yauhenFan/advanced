@@ -1,5 +1,5 @@
 import { After } from '@wdio/cucumber-framework';
-import { MainPage } from '../pages/mainPage';
+import { MainPage } from '../../../src/pages/mainPage';
 
 const mainPage = new MainPage();
 

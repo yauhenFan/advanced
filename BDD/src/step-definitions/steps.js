@@ -1,25 +1,24 @@
-import { Given, When, Then, And } from '@wdio/cucumber-framework';
-import { expect, $, browser } from '@wdio/globals';
-
-import { MainPage } from '../pages/mainPage';
-import { DashboardPage } from '../pages/dashboardPage';
-import { LoginHelper } from '../utils/helpers/loginHelper';
+import { Given, When, Then } from '@wdio/cucumber-framework';
+import { expect, $ } from '@wdio/globals';
+import { MainPage } from '../../../src/pages/mainPage.js';
+import { DashboardPage } from '../../../src/pages/dashboardPage.js';
+import LoginHelper from '../../../src/utils/helpers/loginHelper.js';
+// eslint-disable-next-line camelcase
+import { Default_User1, Default_Pswd1 } from '../utils/credentials.js';
+import { BASE_URL } from '../../../src/data/url.js';
 
 const mainPage = new MainPage();
 const dashboardPage = new DashboardPage();
 const loginHelper = new LoginHelper();
 
-Given('I open web site {string}', async page => {
-	await mainPage.open(page);
+Given('I open ReportPortal login page on localhost', async () => {
+	await mainPage.open(BASE_URL);
 	await mainPage.maximize();
 });
 
-When(
-	'I login with default User credentials {string} and {string}',
-	async (username, password) => {
-		await loginHelper.login(username, password);
-	}
-);
+When('I login with default User credentials', async () => {
+	await loginHelper.login(Default_User1, Default_Pswd1);
+});
 
 When('Dashboard icon displays on the left side bar', async () => {
 	await expect(mainPage.dashboardIcon).toBeDisplayed();
@@ -41,9 +40,7 @@ Then(
 		await dashboardPage.addDashboardModalWindow.waitForDisplayed({
 			timeout: 2000,
 		});
-		await expect(
-			await dashboardPage.addDashboardModalWindow.isDisplayed()
-		).toEqual(true);
+		await expect(dashboardPage.addDashboardModalWindow).toBeDisplayed();
 	}
 );
 
@@ -56,8 +53,8 @@ Then('Enter new dashboard name {string} and save dashboard', async name => {
 });
 
 Then(/^I delete dashboard with number "(.*)"$/, async position => {
-	await (await dashboardPage.deleteDashboardBtn(position)).isDisplayed();
-	await (await dashboardPage.deleteDashboardBtn(position)).click();
+	await (await dashboardPage.deleteExactDashboardBtn(position)).isDisplayed();
+	await (await dashboardPage.deleteExactDashboardBtn(position)).click();
 	await dashboardPage.confirmDeleteBtn.isDisplayed();
 	await dashboardPage.confirmDeleteBtn.click();
 	await mainPage.dashboardIcon.isDisplayed();
