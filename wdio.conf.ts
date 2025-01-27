@@ -3,17 +3,17 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 const rpConfig = {
 	apiKey:
 		'token_yLwYyc6sSOWh15H7Vkn6RXLujW6-bmTQe-Jwz_Fmc1iriM5Fhx9iQz4u4YS0OTE5',
-	endpoint: 'http://localhost:8080',
+	endpoint: 'http://localhost:8080/api/v1',
 	project: 'default_personal',
-	launch: 'Java launch',
+	launch: 'Launch name',
 	mode: 'DEFAULT',
-	debug: false,
-	description: 'Static launch description',
-	attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
-	attachPicturesToLogs: true,
-	reportSeleniumCommands: true,
-	seleniumCommandsLogLevel: 'debug',
-	cucumberNestedSteps: false,
+	// debug: false,
+	// description: 'Static launch description',
+	// attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
+	// attachPicturesToLogs: true,
+	// reportSeleniumCommands: true,
+	// seleniumCommandsLogLevel: 'debug',
+	// cucumberNestedSteps: false,
 };
 
 // eslint-disable-next-line no-undef
