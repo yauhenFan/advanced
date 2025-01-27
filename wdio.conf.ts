@@ -1,20 +1,20 @@
 import { Reporter } from '@reportportal/agent-js-webdriverio';
 
-// const rpConfig = {
-// 	apiKey:
-// 		'apiKey_ldmX-m42T96tKDYg7CjDcUH2QT0rlXFu5vEJKuFFVaqjmDqQ5g__8dzkuRQlbeYk',
-// 	endpoint: 'https://your.reportportal.server/api/v1',
-// 	project: 'Your reportportal project nameal',
-// 	launch: 'Your launch name',
-// 	mode: 'DEFAULT',
-// 	debug: false,
-// 	description: 'Static launch description',
-// 	attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
-// 	attachPicturesToLogs: true,
-// 	reportSeleniumCommands: true,
-// 	seleniumCommandsLogLevel: 'debug',
-// 	cucumberNestedSteps: false,
-// };
+const rpConfig = {
+	apiKey:
+		'token_yLwYyc6sSOWh15H7Vkn6RXLujW6-bmTQe-Jwz_Fmc1iriM5Fhx9iQz4u4YS0OTE5',
+	endpoint: 'http://localhost:8080/ui/#login',
+	project: 'Your reportportal project nameal',
+	launch: 'Your launch name',
+	mode: 'DEFAULT',
+	debug: false,
+	description: 'Static launch description',
+	attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
+	attachPicturesToLogs: true,
+	reportSeleniumCommands: true,
+	seleniumCommandsLogLevel: 'debug',
+	cucumberNestedSteps: false,
+};
 
 // eslint-disable-next-line no-undef
 exports.config = {
