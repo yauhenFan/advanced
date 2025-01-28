@@ -2,9 +2,9 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 
 const rpConfig = {
 	apiKey:
-		'apiKey_pcpiQUESTKeQNzruqmudOcv4SolzhasELqHUE7wYNaU_pfvOsrfxwOuTqYkkzxy1',
-	endpoint: 'http://localhost:8080/ui',
-	project: '#default_personal',
+		'Bearer apiKey_gySMGjwJTKqtB_BouzG2DUHzW2iPXWBJFMwMf5B6ZmFVp0IZZhTsDZIcApdYYR3F',
+	endpoint: 'https://rp.epam.com/api/v1',
+	project: 'yauhen_habinet_personal',
 	launch: 'dashboard',
 	mode: 'DEFAULT',
 	debug: false,
