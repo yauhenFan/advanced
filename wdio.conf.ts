@@ -5,7 +5,7 @@ const rpConfig = {
 		'apiKey_pcpiQUESTKeQNzruqmudOcv4SolzhasELqHUE7wYNaU_pfvOsrfxwOuTqYkkzxy1',
 	endpoint: 'http://localhost:8080/api/v1',
 	project: 'default_personal',
-	launch: 'dashboard',
+	launch: 'launch#23',
 	mode: 'DEFAULT',
 	debug: false,
 	description: 'Static launch description',
