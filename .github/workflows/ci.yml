@@ -21,7 +21,5 @@ jobs:
               run: npx mrm@2 lint-staged
             - name: Dependencies
               run: npm i
-            - name: Switch to local directory
-              run: cd 'C:\Users\Yauhen_Habinet\Desktop\TAF\advanced'
             - name: Run Tests
               run: npm run test
