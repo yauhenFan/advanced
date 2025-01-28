@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable camelcase */
 import { MainPage } from '../pages/mainPage';
 import { BASE_URL, WEB_URL } from '../data/url';
@@ -5,7 +6,6 @@ import { DashboardPage } from '../pages/dashboardPage';
 import { expect } from 'chai';
 import { Default_User, Default_Pswd } from '../utils/credentials';
 import { LoginHelper } from '../utils/helpers/loginHelper';
-import { describe, before } from 'mocha';
 
 const mainPage = new MainPage();
 const dashboardPage = new DashboardPage();
