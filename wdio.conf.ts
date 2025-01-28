@@ -3,9 +3,9 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 const rpConfig = {
 	apiKey:
 		'apiKey_pcpiQUESTKeQNzruqmudOcv4SolzhasELqHUE7wYNaU_pfvOsrfxwOuTqYkkzxy1',
-	endpoint: 'http://localhost:8080/api/v1',
+	endpoint: 'http://localhost:8080/ui/#',
 	project: 'default_personal',
-	launch: 'launch',
+	launch: 'dashboard',
 	mode: 'DEFAULT',
 	debug: false,
 	description: 'Static launch description',
@@ -62,7 +62,7 @@ exports.config = {
 	// and 30 processes will get spawned. The property handles how many capabilities
 	// from the same test should run tests.
 	//
-	maxInstances: 1,
+	maxInstances: 10,
 	//
 	// If you have trouble getting all important capabilities together, check out the
 	// Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -70,7 +70,7 @@ exports.config = {
 	//
 	capabilities: [
 		{
-			maxInstances: 1,
+			maxInstances: 4,
 			browserName: 'chrome',
 			'goog:chromeOptions': {
 				args: [
