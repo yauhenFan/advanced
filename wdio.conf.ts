@@ -2,7 +2,7 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 
 const rpConfig = {
 	apiKey:
-		'Bearer apiKey_gySMGjwJTKqtB_BouzG2DUHzW2iPXWBJFMwMf5B6ZmFVp0IZZhTsDZIcApdYYR3F',
+		'apiKey_gySMGjwJTKqtB_BouzG2DUHzW2iPXWBJFMwMf5B6ZmFVp0IZZhTsDZIcApdYYR3F',
 	endpoint: 'https://rp.epam.com/api/v1',
 	project: 'yauhen_habinet_personal',
 	launch: 'dashboard',
