@@ -12,7 +12,7 @@ const dashboardPage = new DashboardPage();
 const loginHelper = new LoginHelper();
 
 describe('Open Demo dashboard and widget loads', () => {
-	it('Login', async () => {
+	before(async () => {
 		await mainPage.open(BASE_URL);
 		await mainPage.maximize();
 		await loginHelper.login(Default_User, Default_Pswd);
