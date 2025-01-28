@@ -3,8 +3,8 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 const rpConfig = {
 	apiKey:
 		'apiKey_pcpiQUESTKeQNzruqmudOcv4SolzhasELqHUE7wYNaU_pfvOsrfxwOuTqYkkzxy1',
-	endpoint: 'http://localhost:8080/ui/#',
-	project: 'default_personal',
+	endpoint: 'http://localhost:8080/ui/',
+	project: '#default_personal',
 	launch: 'dashboard',
 	mode: 'DEFAULT',
 	debug: false,
