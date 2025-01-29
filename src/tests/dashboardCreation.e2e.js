@@ -31,13 +31,13 @@ describe('Add and delete new dashboard', async () => {
 
 	it('Enter new dashboard name and save dashboard', async () => {
 		await dashboardPage.dashboardNameInput.isDisplayed();
-		await dashboardPage.dashboardNameInput.setValue('New_Dashboard');
+		await dashboardPage.dashboardNameInput.setValue('New Dashboard');
 		await dashboardPage.addDashboardBtn.click();
 		await mainPage.dashboardIcon.isDisplayed();
 		await mainPage.dashboardIcon.click();
 		expect(
 			await (
-				await dashboardPage.getDashboardTitle('New_Dashboard')
+				await dashboardPage.getDashboardTitle('New Dashboard')
 			).isDisplayed()
 		).equals(true);
 	});
@@ -51,7 +51,7 @@ describe('Add and delete new dashboard', async () => {
 		await mainPage.dashboardIcon.click();
 		expect(
 			await (
-				await dashboardPage.getDashboardTitle('New_Dashboard')
+				await dashboardPage.getDashboardTitle('New Dashboard')
 			).isDisplayed()
 		).equals(false);
 	});
