@@ -1,3 +1,20 @@
+import { Reporter } from '@reportportal/agent-js-webdriverio';
+
+const rpConfig = {
+	apiKey:
+		'apiKey_gySMGjwJTKqtB_BouzG2DUHzW2iPXWBJFMwMf5B6ZmFVp0IZZhTsDZIcApdYYR3F',
+	endpoint: 'https://rp.epam.com/api/v1',
+	project: 'yauhen_habinet_personal',
+	launch: 'launches',
+	mode: 'DEFAULT',
+	debug: false,
+	description: 'Static launch description',
+	attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
+	attachPicturesToLogs: true,
+	reportSeleniumCommands: true,
+	seleniumCommandsLogLevel: 'debug',
+	cucumberNestedSteps: false,
+};
 
 // eslint-disable-next-line no-undef
 exports.config = {
@@ -140,7 +157,7 @@ exports.config = {
 	// Test reporter for stdout.
 	// The only one supported by default is 'dot'
 	// see also: https://webdriver.io/docs/dot-reporter
-	reporters: [ 
+	reporters: [[Reporter, rpConfig], 
 		'spec', [
 			'allure',
 			{
