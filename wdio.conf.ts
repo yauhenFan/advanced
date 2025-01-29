@@ -2,10 +2,10 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 
 const rpConfig = {
 	apiKey:
-		'apiKey_pcpiQUESTKeQNzruqmudOcv4SolzhasELqHUE7wYNaU_pfvOsrfxwOuTqYkkzxy1',
-	endpoint: 'http://localhost:8080/api/v1',
-	project: 'default_personal',
-	launch: 'launch#23',
+		'apiKey_gySMGjwJTKqtB_BouzG2DUHzW2iPXWBJFMwMf5B6ZmFVp0IZZhTsDZIcApdYYR3F',
+	endpoint: 'https://rp.epam.com/api/v1',
+	project: 'yauhen_habinet_personal',
+	launch: 'launches',
 	mode: 'DEFAULT',
 	debug: false,
 	description: 'Static launch description',
@@ -41,7 +41,7 @@ exports.config = {
 	// The path of the spec files will be resolved relative from the directory of
 	// of the config file unless it's absolute.
 	//
-	specs: ['./src/tests/*.spec.js'],
+	specs: ['./src/tests/*.e2e.js'],
 	// Patterns to exclude.
 	exclude: [
 		// 'path/to/excluded/files'
@@ -134,7 +134,7 @@ exports.config = {
 	// Services take over a specific job you don't want to take care of. They enhance
 	// your test setup with almost no effort. Unlike plugins, they don't add new
 	// commands. Instead, they hook themselves up into the test process.
-	services: ['chromedriver'],
+	services: ['visual'],
 	//
 	// Framework you want to run your specs with.
 	// The following are supported: Mocha, Jasmine, and Cucumber
