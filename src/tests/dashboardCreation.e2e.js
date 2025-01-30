@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { MainPage } from '../pages/mainPage';
 import { BASE_URL, WEB_URL } from '../data/url.mjs';
 import { DashboardPage } from '../pages/dashboardPage';
@@ -22,9 +23,9 @@ describe('Add and delete new dashboard', async () => {
 		await dashboardPage.addDashboardModalWindow.waitForDisplayed({
 			timeout: 2000,
 		});
-		await expect(
-			await dashboardPage.addDashboardModalWindow.isDisplayed()
-		).equals(true);
+		expect(await dashboardPage.addDashboardModalWindow.isDisplayed()).equals(
+			true
+		);
 	});
 
 	it('Enter new dashboard name and save dashboard', async () => {
@@ -41,8 +42,8 @@ describe('Add and delete new dashboard', async () => {
 	});
 
 	it('Delete newly created dashboard and verify it is not displayed', async () => {
-		await dashboardPage.deleteDashboardBtn.isDisplayed();
-		await dashboardPage.deleteDashboardBtn.click();
+		await (await dashboardPage.deleteDashboardBtn(2)).isDisplayed();
+		await (await dashboardPage.deleteDashboardBtn(2)).click();
 		await dashboardPage.confirmDeleteBtn.isDisplayed();
 		await dashboardPage.confirmDeleteBtn.click();
 		await mainPage.dashboardIcon.isDisplayed();
