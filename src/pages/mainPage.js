@@ -28,4 +28,12 @@ export class MainPage extends Base {
 		await element.isDisplayed();
 		await element.click();
 	}
+
+	get avatarIcon() {
+		return $('.userBlock__avatar-wrapper--aeZeo');
+	}
+
+	get logOutOption() {
+		return $('div.userBlock__menu-item--MKb1c');
+	}
 }

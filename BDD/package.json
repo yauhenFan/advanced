@@ -1,0 +1,26 @@
+{
+	"name": "bdd",
+	"version": "1.0.0",
+	"main": "index.js",
+	"sourceType": "module",
+	"scripts": {
+		"bdd": "wdio run ./wdio.conf.js"
+	},
+	"keywords": [
+		"BDD"
+	],
+	"author": "Yauhen.Habinet",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"@wdio/cucumber-framework": "^9.4.4",
+		"@wdio/local-runner": "^9.4.5",
+		"@wdio/spec-reporter": "^9.4.4",
+		"@wdio/visual-service": "^6.3.0"
+	},
+	"dependencies": {
+		"@wdio/cli": "^9.4.5",
+		"chai": "^5.1.2",
+		"dotenv": "^16.4.7"
+	}
+}
