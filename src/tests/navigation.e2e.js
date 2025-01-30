@@ -21,12 +21,18 @@ describe('Open Demo dashboard and widget loads', () => {
 	it('Verify Demo Dashboard displays in the list', async () => {
 		await mainPage.dashboardIcon.isDisplayed();
 		await mainPage.dashboardIcon.click();
-		expect(await dashboardPage.demoDashBoardIcon.isDisplayed()).equals(true);
+		expect(
+			await dashboardPage.demoDashBoardIcon.waitForDisplayed({ timeout: 3000 })
+		).equals(true);
 	});
 
 	it('Click on Demo dashboard and verify it is loaded', async () => {
 		await dashboardPage.demoDashBoardIcon.isDisplayed();
 		await dashboardPage.demoDashBoardIcon.click();
-		expect(await dashboardPage.demoDashboardWidget.isDisplayed()).equals(true);
+		expect(
+			await dashboardPage.demoDashboardWidget.waitForDisplayed({
+				timeout: 3000,
+			})
+		).equals(true);
 	});
 });

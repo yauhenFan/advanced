@@ -24,9 +24,9 @@ describe('Add and delete new dashboard', async () => {
 		await dashboardPage.addDashboardModalWindow.waitForDisplayed({
 			timeout: 2000,
 		});
-		await expect(
-			await dashboardPage.addDashboardModalWindow.isDisplayed()
-		).equals(true);
+		expect(await dashboardPage.addDashboardModalWindow.isDisplayed()).equals(
+			true
+		);
 	});
 
 	it('Enter new dashboard name and save dashboard', async () => {
