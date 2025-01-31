@@ -47,4 +47,10 @@ export class DashboardPage extends Base {
 			`//div[@class = "gridRow__grid-row--X9wIq"]//a[text() = "${title}"]`
 		);
 	}
+
+	async deleteExactDashboardBtn(elnumber) {
+		return $(
+			`//div[@data-id != "15"][${elnumber}]//i[@class = "icon__icon--coE7b icon__icon-delete--lwBwP"]`
+		);
+	}
 }

@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 //* eslint-disable no-undef */
-import { postData, postDataIncorrect, putData, putWidget }  from './bodyData.mjs';
+import { postData, postDataIncorrect, putData, putWidget }  from '../test/bodyData.mjs';
 import { API_URL } from '../src/data/url.mjs';
 import { test,expect } from '@playwright/test';
 import { requestHeader } from './headers.mjs';
