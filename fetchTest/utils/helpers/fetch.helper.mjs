@@ -1,17 +1,20 @@
+/* eslint-disable camelcase */
 /* eslint-disable quotes */
-import { API_URL } from '../../../src/data/url.mjs';
+import { API_URL_PERSONAL } from '../../../src/data/url.mjs';
 import fetch from 'node-fetch';
-// eslint-disable-next-line camelcase
-import { API_Token } from '../token.mjs';
+import dotenv from 'dotenv';
+dotenv.config();
+
+// eslint-disable-next-line no-undef
+const PERSONAL_TOKEN = process.env.PERSONAL_TOKEN;
 
 export const sendRequest = async(url, data = null, method = "get") => {
     try {
-        const response = await fetch(`${API_URL}${url}`, {
+        const response = await fetch(`${API_URL_PERSONAL}${url}`, {
                   method: method.toUpperCase(),
                   headers: {
                       'Content-Type': 'application/json',
-                      // eslint-disable-next-line camelcase
-                      'Authorization': `Bearer ${API_Token}`,
+                      'Authorization': `Bearer ${PERSONAL_TOKEN}`,
       
                   },
                   body: data ? JSON.stringify(data) : null
@@ -24,7 +27,7 @@ export const sendRequest = async(url, data = null, method = "get") => {
 
     } catch(error) {
      return {
-          status: error.repsonse
+          status: error.response
      };
     }
   };

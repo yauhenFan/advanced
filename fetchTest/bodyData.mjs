@@ -34,24 +34,21 @@ const putData = {
   };
 
 const putWidget = {
-  'addWidget': {
-    'widgetName': 'string',
-    'widgetId': 0,
-    'widgetType': 'string',
-    'widgetSize': {
-      'width': 0,
-      'height': 0
-    },
-    'widgetPosition': {
-      'positionX': 0,
-      'positionY': 0
-    },
-    'widgetOptions': {
-      'additionalProp1': {},
-      'additionalProp2': {},
-      'additionalProp3': {}
+    "addWidget": {
+      "widgetName": "FAILED CASES TREND CHART",
+      "widgetId": 187658,
+      "widgetType": "bugTrend",
+      "widgetSize": {
+        "width": 6,
+        "height": 5
+      },
+      "widgetPosition": {
+        "positionX": 6,
+        "positionY": 15
+      },
+      "widgetOptions": {}
     }
-  }
-};
+  };
 
-export { postData, postDataIncorrect, putData, putWidget};
+
+export { postData, postDataIncorrect, putData, putWidget };

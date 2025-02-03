@@ -13,7 +13,7 @@
 		"spellcheck": "cspell src/**/*.js",
 		"lint": "eslint . --fix",
 		"prepare": "husky install",
-		"api": "mocha",
+		"api": "mocha fetchTest",
 		"playwrightapi": "npx playwright test"
 	},
 	"author": "Yauhen Habinet",

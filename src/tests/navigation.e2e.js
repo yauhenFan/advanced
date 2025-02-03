@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
 import { MainPage } from '../pages/mainPage';
-import { BASE_URL, WEB_URL } from '../data/url.mjs';
+import { WEB_URL } from '../data/url.mjs';
 import { DashboardPage } from '../pages/dashboardPage';
 import { expect } from 'chai';
 import { Invited_User, Invited_Pswd } from '../utils/credentials';
