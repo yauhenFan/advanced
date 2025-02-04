@@ -36,7 +36,7 @@ const putData = {
 const putWidget = {
     "addWidget": {
       "widgetName": "FAILED CASES TREND CHART",
-      "widgetId": 187658,
+      "widgetId": 188118,
       "widgetType": "bugTrend",
       "widgetSize": {
         "width": 6,
