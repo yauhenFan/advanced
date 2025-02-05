@@ -2,10 +2,10 @@ import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, $ } from '@wdio/globals';
 import { MainPage } from '../../../src/pages/mainPage.js';
 import { DashboardPage } from '../../../src/pages/dashboardPage.js';
-import LoginHelper from '../utils/helpers/loginHelper.js';
+import { LoginHelper } from '../../../src/utils/helpers/loginHelper.js';
 // eslint-disable-next-line camelcase
 import { Default_User1, Default_Pswd1 } from '../utils/credentials.js';
-import { BASE_URL } from '../../../src/data/url.js';
+import { BASE_URL } from '../../../src/data/url.mjs';
 
 const mainPage = new MainPage();
 const dashboardPage = new DashboardPage();

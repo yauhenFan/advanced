@@ -5,4 +5,7 @@ allure-report
 combined.log
 combined
 .husky
+test-results
+playwright-report
+.eslintcache
 .eslintcache

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
 import { MainPage } from '../pages/mainPage';
-import { BASE_URL, WEB_URL } from '../data/url';
+import { WEB_URL } from '../data/url.mjs';
 import { DashboardPage } from '../pages/dashboardPage';
 import { expect } from 'chai';
 import { Invited_User, Invited_Pswd } from '../utils/credentials';
@@ -35,7 +35,7 @@ describe('Add and delete new dashboard', async () => {
 		await dashboardPage.addDashboardBtn.click();
 		await mainPage.dashboardIcon.isDisplayed();
 		await mainPage.dashboardIcon.click();
-		expect(
+		await expect(
 			await (
 				await dashboardPage.getDashboardTitle('New Dashboard')
 			).isDisplayed()
@@ -43,8 +43,8 @@ describe('Add and delete new dashboard', async () => {
 	});
 
 	it('Delete newly created dashboard and verify it is not displayed', async () => {
-		await (await dashboardPage.deleteExactDashboardBtn(2)).isDisplayed();
-		await (await dashboardPage.deleteExactDashboardBtn(2)).click();
+		await (await dashboardPage.deleteDashboardBtn(2)).isDisplayed();
+		await (await dashboardPage.deleteDashboardBtn(2)).click();
 		await dashboardPage.confirmDeleteBtn.isDisplayed();
 		await dashboardPage.confirmDeleteBtn.click();
 		await mainPage.dashboardIcon.isDisplayed();

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import Base from './base';
 
 export class DashboardPage extends Base {
@@ -27,9 +28,9 @@ export class DashboardPage extends Base {
 		return $('//button[text() = "Add"]');
 	}
 
-	get deleteDashboardBtn() {
+	async deleteDashboardBtn(number) {
 		return $(
-			'//div[@data-id != "15"]//i[@class = "icon__icon--coE7b icon__icon-delete--lwBwP"]'
+			`//div[@class  ='pageLayout__page-content--DCfUt']//div[@class = 'gridRow__grid-row-wrapper--xj8DG'][${number}]//i[@class = 'icon__icon--coE7b icon__icon-delete--lwBwP']`
 		);
 	}
 
