@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 import { defineConfig } from '@playwright/test';
+import { capabilities } from './playwrightTests/utils/capabilities';
+
 import dotenv from 'dotenv';
 dotenv.config();
 
 export default defineConfig({
 	// Look for test files in the "tests" directory, relative to this configuration file.
 	testDir: './playwrightTests',
-
 	// Run all tests in parallel.
 	fullyParallel: false,
 
@@ -28,18 +29,15 @@ export default defineConfig({
 
 		// Collect trace when retrying the failed test.
 		trace: 'on-first-retry',
+		headless: false,
+		screenshot: 'only-on-failure',
 	},
 	// Configure projects for major browsers.
-	// projects: [
-	//   {
-	//     name: 'chromium',
-	//     use: { ...devices['Desktop Chrome'] },
-	//   },
-	// ],
-	// Run your local dev server before starting the tests.
-	// webServer: {
-	//   command: 'npm run start',
-	//   url: 'http://127.0.0.1:3000',
-	//   reuseExistingServer: !process.env.CI,
-	// },
+	projects: capabilities.map(capability => ({
+		name: capability['LT:Options'].name,
+		use: {
+			browserName: capability.browserName,
+			...capability['LT:Options'],
+		},
+	})),
 });

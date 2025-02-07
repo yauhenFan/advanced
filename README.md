@@ -6,6 +6,11 @@
 
 The goal of the project is to cover by automated test 'Dashboards' section.
 
+## Credentaial storage
+
+1. Add file .env into root of the project
+2. Setup your credentials
+
 ## **Installation**
 
 To install Project Title, follow these steps:
