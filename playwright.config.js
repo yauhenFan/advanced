@@ -40,12 +40,12 @@ export default defineConfig({
 				browserName: 'chromium',
 			},
 		},
-		// {
-		//   name: 'Desktop Firefox',
-		//   use: {
-		// 	...devices['Desktop Firefox'],
-		// 	browserName: 'firefox',
-		//   },
-		// },
+		{
+			name: 'Desktop Firefox',
+			use: {
+				...devices['Desktop Firefox'],
+				browserName: 'firefox',
+			},
+		},
 	],
 });
