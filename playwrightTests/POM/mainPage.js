@@ -19,7 +19,7 @@ export class MainPage extends Base {
 
 	get dashboardSidebarIcon() {
 		return this.page.locator(
-			'div.sidebar__top-block--vy9Qd > div.sidebar__sidebar-btn--DE02C:nth-child(1)'
+			'div.sidebar__top-block--vy9Qd > div.sidebar__sidebar-btn--DE02C:nth-child(1) i.sidebarButton__btn-icon--xc3y6'
 		);
 	}
 
@@ -29,10 +29,6 @@ export class MainPage extends Base {
 
 	get dashboardToolTipText() {
 		return this.page.locator('.sidebarButton__sidebar-tooltip--AkvYG');
-	}
-
-	get addDashboardCancelBtn() {
-		return this.page.locator('//button[text() = "Cancel"]');
 	}
 
 	async enterLoginData(userName, password) {

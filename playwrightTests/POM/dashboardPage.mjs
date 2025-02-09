@@ -44,7 +44,7 @@ get deleteButtonModalWindow() {
 }
 
 get confirmationDashboardDeleteBanner() {
-    return this.page.locator('//p[text() = "Dashboard has been deleted"]');
+    return this.page.getByText('Dashboard has been deleted');
 }
 
 get settingsIcon() {
@@ -75,15 +75,18 @@ async restoreDemoData() {
     await this.demodataOption.click();
     await this.generateDemoDataBtn.isVisible();
     await this.generateDemoDataBtn.click();
-    await this.page.waitForSelector(this.generatedDashboardBanner, { timeout: 35000 });
     await this.mainPage.dashboardSidebarIcon.click();
+    await this.settingsIcon.click();
+    await this.page.waitFor(() => {
+     expect(this.page.getByText('Demo data has been generated')).toBeVisible();
+      });
     } catch (error) {
         console.error('An error occurred:', error);
-    //await this.demoDashboardTitle.isVisible();
 }};
 
 async verifyDragAndDropForWidget(firstEl, secondEl) {
     await this.mainPage.dashboardSidebarIcon.isVisible();
+    await this.mainPage.dashboardSidebarIcon.click();
     await this.demoDashboardTitle.click();
     const WidgetLocationOne = await this.secondWidget.boundingBox();
     await this.page.dragAndDrop(secondEl, firstEl);

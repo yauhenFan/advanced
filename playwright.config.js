@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
-import { defineConfig } from '@playwright/test';
-import { capabilities } from './playwrightTests/utils/capabilities';
+import { defineConfig, devices } from '@playwright/test';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -33,11 +32,20 @@ export default defineConfig({
 		screenshot: 'only-on-failure',
 	},
 	// Configure projects for major browsers.
-	projects: capabilities.map(capability => ({
-		name: capability['LT:Options'].name,
-		use: {
-			browserName: capability.browserName,
-			...capability['LT:Options'],
+	projects: [
+		{
+			name: 'Desktop Chrome',
+			use: {
+				...devices['Desktop Chrome'],
+				browserName: 'chromium',
+			},
 		},
-	})),
+		// {
+		//   name: 'Desktop Firefox',
+		//   use: {
+		// 	...devices['Desktop Firefox'],
+		// 	browserName: 'firefox',
+		//   },
+		// },
+	],
 });
