@@ -1,7 +1,7 @@
  //* eslint-disable no-undef */
 import { postData, postDataIncorrect, putData, putWidget }  from '../fetchTest/bodyData.mjs';
 import { test,expect } from '@playwright/test';
-import { sendRequest } from './utils/helpers/playwright.helper.mjs';
+import { sendRequest } from './utils/helpers/api.helper.mjs';
 import { endpoints } from '../src/data/constants.mjs';
 
 

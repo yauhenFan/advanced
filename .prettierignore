@@ -5,3 +5,5 @@ allure-report
 combined.log
 combined
 .eslintcache
+playwright-report/
+test-results/
