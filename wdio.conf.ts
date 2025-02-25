@@ -2,14 +2,13 @@ import { Reporter } from '@reportportal/agent-js-webdriverio';
 
 const rpConfig = {
 	apiKey:
-		'apiKey_gySMGjwJTKqtB_BouzG2DUHzW2iPXWBJFMwMf5B6ZmFVp0IZZhTsDZIcApdYYR3F',
+		'apiKey_Jznkxt6-TfO9OwjMZiK30mRyIW_Wn12TgLCNpcTvzg6JTnUZEdatW0cAD905Si1G',
 	endpoint: 'https://rp.epam.com/api/v1',
 	project: 'yauhen_habinet_personal',
-	launch: 'launches',
+	launch: 'Demo Launch',
 	mode: 'DEFAULT',
 	debug: false,
 	description: 'Static launch description',
-	attributes: [{ key: 'key', value: 'value' }, { value: 'value' }],
 	attachPicturesToLogs: true,
 	reportSeleniumCommands: true,
 	seleniumCommandsLogLevel: 'debug',

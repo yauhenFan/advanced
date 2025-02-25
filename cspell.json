@@ -5,7 +5,8 @@
 		"node_modules/**",
 		"dist/**",
 		"allure-report/**",
-		"allure-resuls/**"
+		"allure-resuls/**",
+		".scannerwork"
 	],
 	"dictionaries": ["typescript", "javascript", "html", "css"],
 	"words": ["autoamtion", "framewotrk"]
