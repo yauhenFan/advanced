@@ -1,11 +1,20 @@
 /* eslint-disable camelcase */
-import { test, expect, request } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { MainPage } from './POM/mainPage';
 import { WEB_URL, DEMO_DASHBOARD_URL } from '../src/data/url.mjs';
 import { DashboardPage } from './POM/dashboardPage.mjs';
 import { Invited_User, Invited_Pswd } from '../src/utils/credentials';
+import { sendSlackRequest } from './utils/helpers/slack.helper.mjs';
 
 test.describe('UI testing for Dashboard application using PLaywright', async () => {
+	test.beforeAll('Slack start message', async () => {
+		await sendSlackRequest('post', 'Starting tests....');
+	});
+
+	test.afterAll('Slack end message', async () => {
+		await sendSlackRequest('post', 'Finishing tests....');
+	});
+
 	let mainPage;
 	let dashboardPage;
 	test.beforeEach('Login Step', async ({ page }) => {
