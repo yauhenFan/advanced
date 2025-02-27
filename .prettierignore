@@ -7,3 +7,4 @@ combined
 .eslintcache
 playwright-report/
 test-results/
+.scannerwork

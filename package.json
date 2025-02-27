@@ -15,13 +15,15 @@
 		"prepare": "husky install",
 		"api": "mocha fetchTest",
 		"playwrightapi": "npx playwright test",
-		"ui": "npx playwright test ui.spec.js"
+		"ui": "npx playwright test ui.spec.js",
+		"launch": "npx playwright test ui.spec.js --config=play.config.ts"
 	},
 	"author": "Yauhen Habinet",
 	"license": "ISC",
 	"devDependencies": {
 		"@eslint/js": "^9.17.0",
 		"@playwright/test": "^1.50.1",
+		"@reportportal/agent-js-playwright": "^5.1.11",
 		"@reportportal/agent-js-webdriverio": "^5.2.0",
 		"@types/chai": "^5.0.1",
 		"@wdio/allure-reporter": "^9.1.3",

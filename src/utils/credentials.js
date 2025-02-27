@@ -7,6 +7,8 @@ const Invited_User = process.env.Invited_User;
 const Invited_Pswd = process.env.Invited_Pswd;
 const LT_ACCESS_KEY = process.env.LT_ACCESS_KEY;
 const LT_USERNAME = process.env.LT_USERNAME;
+const SONAR_TOKEN = process.env.SONAR_TOKEN;
+const SLACK_URL = process.env.SLACK_URL;
 
 export {
 	Default_User,
@@ -15,4 +17,6 @@ export {
 	Invited_Pswd,
 	LT_USERNAME,
 	LT_ACCESS_KEY,
+	SONAR_TOKEN,
+	SLACK_URL,
 };
